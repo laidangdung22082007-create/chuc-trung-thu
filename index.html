@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Trung Thu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(to bottom, #020111, #20202c);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Mặt trăng */
+        .moon {
+            width: 150px;
+            height: 150px;
+            background: #fffdf0;
+            border-radius: 50%;
+            position: absolute;
+            top: 10%;
+            box-shadow: 0 0 50px #fffae6, 0 0 100px #ffd700;
+        }
+
+        /* Khung thiệp */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+            width: 380px;
+            z-index: 10;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .lantern {
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+
+        /* Hiệu ứng Đèn lồng bay */
+        .floating-lantern {
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            animation: floatUp linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="moon"></div>
+
+    <div class="card">
+        <h1>🥮 Chúc Mừng Trung Thu 🌕</h1>
+        <p>
+            Nhân dịp Tết Trung Thu, chúc em bình an, hạnh phúc, ấm áp và tràn ngập niềm vui. Chúc cho những ước mơ của bạn luôn tỏa sáng như ánh trăng đêm nay! ✨
+        </p>
+<div class="lantern">🏮 🏮 🏮</div>
+    </div>
+
+    <script>
+        // Tạo hiệu ứng đèn lồng bay ngẫu nhiên
+        function createLantern() {
+            const lantern = document.createElement('div');
+            lantern.classList.add('floating-lantern');
+            lantern.innerText = '🏮';
+            lantern.style.left = Math.random() * 100 + 'vw';
+            lantern.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            document.body.appendChild(lantern);
+
+            setTimeout(() => {
+                lantern.remove();
+            }, 10000);
+        }
+
+        setInterval(createLantern, 800);
+    </script>
+</body>
+</html>
